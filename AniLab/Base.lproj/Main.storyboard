@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="GJq-48-MsV"/>
                         <viewControllerLayoutGuide type="bottom" id="F6P-zd-Jqg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="868" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -39,7 +39,7 @@
                                         <rect key="frame" x="237" y="120" width="60" height="60"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-h8-ajQ">
-                                        <rect key="frame" x="150" y="10" width="20" height="14"/>
+                                        <rect key="frame" x="150" y="13" width="20" height="14"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>

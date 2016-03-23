@@ -19,12 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        init(
-//        let trayCenterWhenOpen = CGPoint(x: trayView.center.x, y: trayView.center.y - 150)
-//        let trayCenterWhenClosed = CGPoint(x: trayView.center.x, y: trayView.center.y)
-//        print(trayCenterWhenClosed, trayCenterWhenOpen)
-        
-        
+         trayCenterWhenOpen = CGPoint(x: trayView.center.x, y: trayView.center.y - 150)
+         trayCenterWhenClosed = CGPoint(x: trayView.center.x, y: trayView.center.y)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -34,23 +30,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onTrayTap(sender: UITapGestureRecognizer) {
-        if self.trayView.center.y == 134.0 {
+        if self.trayView.center == trayCenterWhenOpen {
             print(">>>Click it down")
             UIView.animateWithDuration(1, animations: { () -> Void in
-                self.trayView.center = CGPoint(x: 160.0, y: 284.0)
+                self.trayView.center = self.trayCenterWhenClosed!
             })
             
-        }else if self.trayView.center.y == 284.0 {
+        }else if self.trayView.center == trayCenterWhenClosed {
             print(">>>Click it up")
             UIView.animateWithDuration(0.8, animations: { () -> Void in
-                self.trayView.center = CGPoint(x: 160.0, y: 134.0)
+                self.trayView.center = self.trayCenterWhenOpen!
             })
         }
     }
     
     @IBAction func onTrayPan(panGestureRecognizer: UIPanGestureRecognizer) {
         
-        // >0 going down <0 going up
         let velocity = panGestureRecognizer.velocityInView(trayView).y
         
         // Absolute (x,y) coordinates in parent view's coordinate system
@@ -72,15 +67,16 @@ class ViewController: UIViewController {
 //            print("Gesture ended at: \(point)")
             
             if velocity > 0 {
-                print(">>> down")
-                UIView.animateWithDuration(1, animations: { () -> Void in
-                    self.trayView.center = CGPoint(x: 160.0, y: 284.0)
-                    })
-                
+//                print(">>> down")
+                UIView.animateWithDuration(0.4, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: velocity/100, options: [], animations: { () -> Void in
+                    self.trayView.center = self.trayCenterWhenClosed!
+                    }, completion: { (Bool) -> Void in
+                        
+                })
             }else if velocity < 0 {
-                print(">>>Going up")
-                UIView.animateWithDuration(0.8, animations: { () -> Void in
-                    self.trayView.center = CGPoint(x: 160.0, y: 134.0)
+//                print(">>>Going up")
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.trayView.center = self.trayCenterWhenOpen!
                 })
             }
         }
