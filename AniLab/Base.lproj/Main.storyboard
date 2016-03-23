@@ -54,12 +54,13 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="arrow" destination="P4t-h8-ajQ" id="xgm-lo-NvJ"/>
                         <outlet property="parentView" destination="8bC-Xf-vdC" id="aTG-7i-MR6"/>
                         <outlet property="trayView" destination="8bC-Xf-vdC" id="JzH-EJ-OIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="l2h-O1-0yt">
+                <panGestureRecognizer delaysTouchesEnded="NO" minimumNumberOfTouches="1" id="l2h-O1-0yt">
                     <connections>
                         <action selector="onTrayPan:" destination="BYZ-38-t0r" id="bV6-oB-0AL"/>
                     </connections>
